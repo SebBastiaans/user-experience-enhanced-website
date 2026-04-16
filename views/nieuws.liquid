@@ -1,0 +1,46 @@
+{%  render 'partials/head.liquid' %}
+
+<header class="header-news">
+    <h1>Veld nieuws</h1>
+
+    <ul class="news-filter">
+        <li {% if huidigPad == '/nieuws' %} class="active" {% endif %}>
+            <a href="/nieuws">Laatste</a>
+        </li>
+        <li {% if huidigPad == '/nieuws/in-de-bloei' %} class="active" {% endif %}>
+            <a href="/nieuws/in-de-bloei">In de bloei</a>
+        </li>
+        <li {% if huidigPad == '/nieuws/na-de-bloei' %} class="active" {% endif %}>
+            <a href="/nieuws/na-de-bloei">Na de bloei</a>
+        </li>
+    </ul>
+
+    <form method="POST" action="/nieuws">
+        <input type="search" name="search" placeholder="Zoek in nieuws" value="{{ zoeken }}">
+    </form>
+</header>
+
+<main class="main-news">
+    <ul>
+        {% for newsItem in nieuws %}
+            <li>
+                <img src="https://fdnd-agency.directus.app/assets/{{newsItem.image}}" alt="{{newsItem.title}}">
+                <p>Bloemneveld</p> 
+                <a href="/nieuws/{{ newsItem.slug }}">{{ newsItem.title |  truncate: 60}}</a>{% comment %} truncate zorgt voor maximaal aantal charactars, daarna worden het 3 puntjes{% endcomment %}
+            </li> 
+        {% endfor %}
+
+        {% comment %} Dit is dummy om te laten zien met veel berichten {% endcomment %}
+        {% for newsItem in nieuws %}
+            <li>
+                <img src="https://fdnd-agency.directus.app/assets/{{newsItem.image}}" alt="{{newsItem.title}}">
+                <p>Bloemneveld</p> 
+                <a href="/nieuws/{{ newsItem.slug }}">{{ newsItem.title |  truncate: 60}}</a>{% comment %} truncate zorgt voor maximaal aantal charactars, daarna worden het 3 puntjes{% endcomment %}
+            </li> 
+        {% endfor %}
+    </ul>
+</main>
+
+{%  render 'partials/navbar.liquid', huidigPad: huidigPad %}
+
+{%  render 'partials/foot.liquid' %}

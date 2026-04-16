@@ -1,0 +1,50 @@
+{%  render 'partials/head.liquid' %}
+<header>
+    <h1>Home</h1>
+</header>
+
+<main class="main-home">
+    
+    <h2>Welkom</h2>
+ 
+    <section class="home-list-title">
+        <img src="/assets/collectieIcon.svg" alt="collectie icon">
+        <h3>Bloemenveld collectie</h3>
+
+        <ul>
+            {% if collectie %}
+                {% for collectieItem in collectie %}
+                    <li><a href="/collectie/{{ collectieItem.slug }}">{{ collectieItem.title }}</a></li>
+                {% endfor %}
+            {% else %}
+                <li class="else-message">Je hebt nog niks gespaard. Start de <strong>Veldverkenner</strong> om meer te weten te komen over wat er groeit en je collectie aan te vullen.</li>
+            {% endif %}
+        </ul>
+    </section>
+
+
+    <section class="home-list-title">
+        <img src="/assets/nieuwsIcon.svg" alt="Nieuws icon">
+        <h3>Veld Nieuws</h3>
+
+        <ul>
+            {% if nieuws %}
+                {% for newsItem in nieuws %}
+                    <li class="news-item-hp" style="background-color: {{ newsItem.color }};">
+                        <p>Bloemenveld</p> 
+                        <a href="/nieuws/{{ newsItem.slug }}">{{ newsItem.title }}</a>
+                        <img src="https://fdnd-agency.directus.app/assets/{{newsItem.image}}" alt="{{newsItem.title}}">
+                    </li> 
+                {% endfor %}
+            {% else %}
+                <li class="else-message">Er is geen nieuws te melden.</li>    
+            {% endif %}
+        </ul>
+    </section>
+    
+</main>
+
+{%  render 'partials/navbar.liquid', huidigPad: huidigPad %}
+
+{%  render 'partials/foot.liquid' %}
+

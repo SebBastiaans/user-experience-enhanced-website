@@ -1,0 +1,155 @@
+/* Sansita alle fonts wordt gebruikt voor voornamelijk headings */
+
+@font-face { 
+  font-family: 'sansita'; 
+  src: url('/fonts/Sansita-Regular.ttf'); 
+  font-weight: 400; 
+  font-style: normal; 
+}
+
+@font-face {
+  font-family: 'sansita';
+  src: url('/fonts/Sansita-Italic.ttf');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'sansita';
+  src: url('/fonts/Sansita-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sansita';
+  src: url('/fonts/Sansita-BoldItalic.ttf');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'sansita';
+  src: url('/fonts/Sansita-ExtraBold.ttf');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sansita';
+  src: url('/fonts/Sansita-ExtraBoldItalic.ttf');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'sansita';
+  src: url('/fonts/Sansita-Black.ttf');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sansita';
+  src: url('/fonts/Sansita-BlackItalic.ttf');
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* open-sans font wordt gebruikt voor voornamelijk titels */
+@font-face {
+  font-family: 'open-sans';
+  src: url('/fonts/OpenSans-VariableFont_wdth,wght.ttf');
+  font-style: normal;
+}
+
+/* inter font wordt gebruikt voor voornamelijk paragraafs */
+@font-face {
+  font-family: 'inter';
+  src: url('/fonts/Inter-VariableFont_opsz,wght.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+img, video {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: sansita, sans-serif;
+}
+
+p{
+    font-family: inter, sans-serif;
+}
+
+body {
+    /* --------- font sizes --------- */
+    --paragraph: clamp(1rem, 2vw, 1.3rem); 
+    --heading-small: clamp(1.2rem, 2vw, 1rem);
+    --heading-medium: clamp(1.4rem, 2.7vw, 2.2rem);
+    --heading-big: clamp(1.4rem, 3vw, 2.5rem);
+
+    --primary-text-color: black;
+
+    /* --------- colors --------- */
+
+    /* zone colors */
+    --sierlint: #F7F3A4;
+    --voedseleiland: #BAD790;
+    --heuvel: #D2C9E7;
+    --waterplandgebied: #99D7EC;
+
+    /* site wide colors */
+    --light-background: #F7F7F7;
+    --medium-background: #a2a2a2;
+    --dark-background: #3C3C3C;
+
+    --light-text: #F7F7F7;
+    --dark-text: #3C3C3C;
+
+    /* accents and borders */
+    --active: #015E30;
+    --light-border:#ffffff;
+    --dark-border: #1b1b1b;
+
+    /* --------- borders --------- */
+    --border-image: 0.625rem;
+    --border-popover: 1rem;
+    --border-button: .5rem;
+    --border-round: 100%;
+
+    /* buttons */
+    --correct: #015E30;
+    --incorrect: #8F0000;
+
+    /* border-radius */
+    --border-radius: 10px;
+}
+
+/* zone kleuren */
+.sierlint {
+    background-color: var(--sierlint);
+}
+
+.voedseleiland {
+    background-color: var(--voedseleiland);
+}
+
+.heuvel {
+    background-color: var(--heuvel);
+}
+
+.waterplandgebied {
+    background-color: var(--waterplandgebied);
+}

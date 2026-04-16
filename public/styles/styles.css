@@ -1,0 +1,313 @@
+html{
+    margin: 0;
+    line-height: 1.4;
+}
+
+main{
+    padding-inline: 1rem;
+}
+
+/* MARK: header *****************************/
+header{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+
+    h1{
+        align-self: center;
+    }
+}
+/* MARK: header nieuws overzicht pagina *****************************/
+.header-news{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+
+    h1{
+        align-self: center;
+    }
+    .news-filter{
+        display: flex;
+        justify-content: space-evenly;
+        padding-inline: 1rem;
+
+        li{
+            list-style: none;
+            background-color: #FFF0B5;
+            border-radius: var(--border-radius);
+            padding: .5rem 1rem .5rem 1rem;
+
+            a{
+                text-decoration: none;
+                color: var(--primary-text-color);
+                font-weight: bold;
+
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+
+            &.active{
+                outline: 2px solid var(--active);
+            }
+        }
+
+    }
+
+    form{
+        align-self: center;
+        width: 80%;
+        img{
+            position: block;
+        }
+        input{
+            background-color: #EDEDED;
+            border: none;
+            padding: .5rem 1rem .5rem 2rem;
+            border-radius: 5rem;
+            background-image: url('/assets/searchIcon.svg');
+            background-repeat: no-repeat;
+            background-position: .5rem center;
+            width: 100%;
+
+            &:focus-visible{
+                outline: 2px solid var(--active);
+            }
+        }
+    }
+}
+/* *************************************************************** */
+/* MARK: main nieuws pagina *****************************/
+.main-news{
+    ul{
+        padding: 0;
+        padding-bottom: 5rem;
+
+        li{
+            height: auto;
+            display: grid;
+            grid-template-areas: 
+            'image tag'
+            'image title';
+            grid-template-columns: 1fr 2fr;
+            gap: .5rem;
+            padding-block: 1rem;
+            border-bottom: 2px solid var(--primary-text-color);
+            align-items: flex-end;
+
+            @media (prefers-reduced-motion: no-preference){
+                animation: fade-in cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
+                animation-timeline: view();
+                animation-range: entry 0% cover 30%;
+            }
+
+            img{
+                border-radius: var(--border-radius);
+                width: 100%;
+                grid-area: image;
+                height: 6rem;
+                object-fit: cover;
+            }
+
+            p{
+                grid-area: tag;
+                margin: 0;
+                border: 1px solid var(--primary-text-color);
+                width: fit-content;
+                height: fit-content;
+                padding: .1rem .2rem .1rem .2rem;
+                border-radius: 1rem;
+                font-size: 10px;
+            }
+
+            a{
+                grid-area: title;
+                text-decoration: none;
+                color: var(--primary-text-color);
+                font-weight: bold;
+                font-size: 1.1rem;
+
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* *************************************************************** */
+/* MARK: main nieuws detail pagina *****************************/
+.main-news-detail{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding-block: 1rem;
+    padding-bottom: 5rem;
+
+    img{
+        border-radius: var(--border-radius);
+        width: 100%;
+        height: 18rem;
+        object-fit: cover;
+    }
+    time{
+        font-family: open-sans, sans-serif;
+    }
+    p:first-of-type{
+        font-family: open-sans, sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+    }
+    p:nth-of-type(2){
+        font-family: inter, sans-serif;
+    }
+
+}
+/* *************************************************************** */
+/* MARK: main home pagina *****************************/
+.main-home{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding-bottom: 5rem;
+
+    h2{
+        font-weight: 400;
+        font-size: 1.5rem;
+        padding-top: 1rem;
+    }
+
+    .home-list-title{
+        display: grid;
+        grid-template-areas: 
+        'icon titel'
+        'list list';
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        row-gap: .5rem;
+
+        img{
+            width: 25px;
+            grid-area: icon;
+        }
+        h3{
+            font-size: 20px;
+            font-weight: 400;
+            padding-left: .5rem;
+            grid-area: titel;
+        }
+
+        ul{
+            grid-area: list;
+            display: flex;
+            overflow-x: auto;
+            gap: .5rem;
+
+            .news-item-hp{
+                width: 19.06rem;
+                height: 19.18rem;
+                background-color: #ffd380;
+                border-radius: var(--border-radius);
+                padding: .5rem;
+                flex-shrink: 0;
+
+                p{
+                    border: 1px solid var(--primary-text-color);
+                    width: fit-content;
+                    height: fit-content;
+                    padding: .1rem .2rem .1rem .2rem;
+                    border-radius: 1rem;
+                    font-size: 10px;
+                }
+                a{
+                    text-decoration: none;
+                    color: black;
+                    font-family: sansita, sans-serif;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    padding-block: .5rem;
+                    display: block;
+                }
+                img{
+                    width: 100%;
+                    height: 12rem;
+                    object-fit: cover;
+                    border-radius: var(--border-radius);
+                }
+            }
+
+            .else-message{
+                background-color: #c1f0ff;
+                border-radius: var(--border-radius);
+                padding: 1rem;
+                text-align: center;
+                font-family: open-sans, sans-serif;
+
+            }
+        }
+    }
+
+}
+/* *************************************************************** */
+/* MARK: main veldverkenner pagina *****************************/
+.main-veldverkenner{
+    padding-inline: 0;
+    padding-bottom: 5rem;
+
+    svg{
+        width: 100vw;
+        height: auto;
+
+        a{
+            cursor: pointer;
+        }
+    }
+}
+/* *************************************************************** */
+/* MARK: main collectie pagina *****************************/
+.main-collection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 90vh;
+    height: 90dvh;
+
+    article{
+        height: fit-content;
+        width: 17.5rem;
+        background-color: #D2C9E7;
+        border-radius: var(--border-radius);
+        padding: .5rem;
+
+        &:nth-last-of-type(2){
+            background-color: #BAD790;
+        }
+        p{
+            margin-bottom: .5rem;
+        }
+
+        a{
+            background-color: #3C3C3C;
+            border-radius: var(--border-radius);
+            color: white;
+            height: 2.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: inter, sans-serif;
+        }
+
+    }
+}

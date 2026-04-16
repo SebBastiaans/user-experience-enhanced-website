@@ -1,0 +1,25 @@
+ <form 
+    action="/nieuws/{{ artikel.slug }}" 
+    method="POST" 
+    class="comment-form{% if error %} error{% endif %}{% if gelukt %} succes{% endif %}" 
+    id="reacties">
+    <h2>Laat een bericht achter</h2>
+    <label>Naam:<input type="text" name="name" required></label>
+    <label>Bericht:<textarea name="message" id="" required></textarea></label>
+    <input type="hidden" name="newsID" value="{{ artikel.id }}">
+    <button type="submit">
+        verstuur
+    </button>
+
+    <ul>
+        {% for bericht in berichten %}
+            <li>
+                <p> {{ bericht.name | truncate: 20 }}</p>
+                <time datetime="{{ bericht.date_created }}"> {{ bericht.date_created | date: '%d/%m/%Y'}} </time>
+                <p> {{ bericht.comment }} </p>
+            </li>
+            {% else %}
+                <li>Er zijn nog geen opmerkingen.</li>
+        {% endfor %}
+    </ul>
+</form>
