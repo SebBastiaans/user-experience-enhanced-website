@@ -12,6 +12,14 @@
         {{ artikel.body }}
     </p>
 
+    <div class="detai-question">
+        <p>
+            {{ artikel.question }}
+            Hoe ziet de duidendblad er bij jou uit?
+        </p>
+        <p>Laat het weten in de berichten hieronder!</p>
+    </div>
+
     {%  render 'partials/commentForm.liquid', berichten: berichten, artikel: artikel, error: error, gelukt: gelukt %}
 </main>
 

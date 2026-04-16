@@ -172,6 +172,13 @@ header{
         font-family: inter, sans-serif;
     }
 
+    .detai-question{
+        background-color: #c6e3a5;
+        border-radius: var(--border-radius);
+        padding:.5rem 1rem;
+        width: fit-content;
+    }
+
 }
 /* *************************************************************** */
 /* MARK: main home pagina *****************************/
