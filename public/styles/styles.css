@@ -101,12 +101,16 @@ header{
                 animation-range: entry 0% cover 30%;
             }
 
-            img{
-                border-radius: var(--border-radius);
-                width: 100%;
+            picture{
                 grid-area: image;
-                height: 6rem;
-                object-fit: cover;
+                
+                img{
+                    border-radius: var(--border-radius);
+                    width: 100%;
+                    grid-area: image;
+                    height: 6rem;
+                    object-fit: cover;
+                }                
             }
 
             p{
