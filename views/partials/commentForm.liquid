@@ -17,6 +17,10 @@
                 <p> {{ bericht.name | truncate: 20 }}</p>
                 <time datetime="{{ bericht.date_created }}"> {{ bericht.date_created | date: '%d/%m/%Y'}} </time>
                 <p> {{ bericht.comment }} </p>
+
+                <form  method="POST" action="/nieuws/{{ artikel.slug }}/{{ bericht.id }}/delete">
+                    <button type="submit">╳</button>
+                </form>
             </li>
             {% else %}
                 <li>Er zijn nog geen opmerkingen.</li>
@@ -34,7 +38,7 @@
 
   const commForm = document.querySelector("form")
   const formButton = document.querySelector("form button")
-  const scores = document.querySelector("#reacties ul")
+  const messages = document.querySelector("#reacties ul")
 
   // Als er op de submit button wordt geklikt ...
   commForm.addEventListener("submit", async function(event) {
@@ -72,13 +76,16 @@
 
     // data van de server toevoegen aan de DOM, aan de scorelijst in de ol
     // Overschrijf de HTML met de nieuwe HTML
-    scores.innerHTML = newState.innerHTML
+    messages.innerHTML = newState.innerHTML
+
+      const latestMess = document.querySelector("#reacties ul li:first-of-type")
 
     // Loading state weghalen
     // Nu kan je waarschijnlijk de Loading state vervangen door een Success state
     console.log("Loading state weghalen")
     formButton.classList.remove("loading")
     formButton.textContent = "✓"
+    latestMess.classList.add("highlight")
 
   })
 

@@ -103,6 +103,10 @@
         background-color: #57665E;
     }
 
+    .highlight{
+        border-bottom: 3px solid #000;
+    }
+
     button{
         appearance: none;
         font-family: inter, sans-serif;
@@ -134,7 +138,7 @@
         background-color: white;
 
         li{
-            border-bottom: 1px solid #958d4f;
+            border-bottom: 1px solid #000;
             display: grid;
             grid-template-areas: 
             'naam    datum'
