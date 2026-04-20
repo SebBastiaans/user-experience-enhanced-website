@@ -157,15 +157,19 @@ app.post('/nieuws/:slug', async function (request, response){
   response.redirect(303, '/nieuws/' + request.params.slug + '#reacties')
 })
 
-//delete functie van comments.
-// app.post('/nieuws/:slug/:review', async function (request, response){
-//   await fetch('https://fdnd-agency.directus.app/items/frankendael_news_comments', + request.params.comments {
 
-//     method: 'DELETE',
-//   })
-  
-//   response.redirect(303, '/nieuws/' + request.params.slug)
-// })
+// delete comments functie
+app.post('/nieuws/:slug/:id/delete', async function (request, response) {
+    const deleteResponse = await fetch('https://fdnd-agency.directus.app/items/frankendael_news_comments/' + request.params.id, {
+        method: 'DELETE'
+    })
+
+    if (deleteResponse.ok) {
+        response.redirect(303, '/nieuws/' + request.params.slug + '#reacties')
+    } else {
+        response.redirect(303, '/nieuws/' + request.params.slug + '?mislukt#reacties')
+    }
+})
  
 // Route 3: alles (geen filter)
 app.get('/veldverkenner', async function (request, response) {
@@ -202,50 +206,6 @@ app.get('/collectie', async function (request, response) {
     zoeken: search
   })
 })
-
-/*
-// Zie https://expressjs.com/en/5x/api.html#app.get.method over app.get()
-app.get(…, async function (request, response) {
-  
-  // Zie https://expressjs.com/en/5x/api.html#res.render over response.render()
-  response.render(…)
-})
-*/
-
-/*
-// Zie https://expressjs.com/en/5x/api.html#app.post.method over app.post()
-app.post(…, async function (request, response) {
-
-  // In request.body zitten alle formuliervelden die een `name` attribuut hebben in je HTML
-  console.log(request.body)
-
-  // Via een fetch() naar Directus vullen we nieuwe gegevens in
-
-  // Zie https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch over fetch()
-  // Zie https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify over JSON.stringify()
-  // Zie https://docs.directus.io/reference/items.html#create-an-item over het toevoegen van gegevens in Directus
-  // Zie https://docs.directus.io/reference/items.html#update-an-item over het veranderen van gegevens in Directus
-  const fetchResponse = await fetch(…, {
-    method: …,
-    body: JSON.stringify(…),
-    headers: {
-      'Content-Type': 'application/json;charset=UTF-8'
-    }
-  })
-
-  // Als de POST niet gelukt is, kun je de response loggen. Sowieso een goede debugging strategie.
-  // console.log(fetchResponse)
-
-  // Eventueel kun je de JSON van die response nog debuggen
-  // const fetchResponseJSON = await fetchResponse.json()
-  // console.log(fetchResponseJSON)
-
-  // Redirect de gebruiker daarna naar een logische volgende stap
-  // Zie https://expressjs.com/en/5x/api.html#res.redirect over response.redirect()
-  response.redirect(303, …)
-})
-*/
-
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
