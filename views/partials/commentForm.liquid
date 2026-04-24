@@ -1,4 +1,4 @@
- <form 
+<form 
     action="/nieuws/{{ artikel.slug }}" 
     method="POST" 
     class="comment-form{% if error %} error{% endif %}{% if gelukt %} succes{% endif %}" 
@@ -12,7 +12,7 @@
     </button>
 </form>
 
-<ul>
+<ul class="comment-list">
     {% for bericht in berichten %}
         <li>
             <p> {{ bericht.name | truncate: 20 }}</p>

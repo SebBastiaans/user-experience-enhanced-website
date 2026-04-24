@@ -113,7 +113,7 @@ header{
                 }                
             }
 
-            p{
+            .tag{
                 grid-area: tag;
                 margin: 0;
                 border: 1px solid var(--primary-text-color);
@@ -176,7 +176,7 @@ header{
         font-family: inter, sans-serif;
     }
 
-    .detai-question{
+    .detail-question{
         border-radius: var(--border-radius);
         padding:.5rem 1rem;
         width: fit-content;
