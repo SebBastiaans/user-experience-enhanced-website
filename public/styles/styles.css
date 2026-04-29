@@ -1,11 +1,29 @@
 html{
     margin: 0;
     line-height: 1.4;
+
+    @media (min-width: 500px){
+        width: 450px;
+        position: absolute;
+        transform: translateX(-50%);
+        left: 50%;
+        border: black solid 3px;
+        border-radius: 10px;
+        overflow:hidden;
+
+        body{
+            height: 100dvh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+    }
 }
 
 main{
     padding-inline: 1rem;
 }
+
 
 /* MARK: header *****************************/
 header{
@@ -136,6 +154,10 @@ header{
                 }
             }
         }
+    }
+
+    @media (min-width: 500px){
+        overflow-y: scroll;
     }
 }
 @keyframes fade-in {
@@ -275,12 +297,19 @@ header{
     padding-bottom: 5rem;
 
     svg{
-        width: 100vw;
+        width: 100%;
         height: auto;
 
         a{
             cursor: pointer;
         }
+    }
+
+    @media (min-width: 500px){
+        overflow-y: scroll;
+        height: 100dvh;
+        flex: 1;
+        min-height: 0;
     }
 }
 /* *************************************************************** */
