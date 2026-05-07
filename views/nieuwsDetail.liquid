@@ -4,9 +4,9 @@
 
 <main class="main-news-detail">
     <picture>
-        <source loading="lazy" type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{artikel.image}}?format=avif">
-        <source loading="lazy" type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{artikel.image}}?format=webp">
-        <img loading="lazy" src="https://fdnd-agency.directus.app/assets/{{newsItem.image}}" alt="{{newsItem.title}}">
+        <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{artikel.image}}?format=avif">
+        <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{artikel.image}}?format=webp">
+        <img width="150" height="100" loading="lazy" src="https://fdnd-agency.directus.app/assets/{{newsItem.image}}" alt="{{newsItem.title}}">
     </picture>
     <time datetime="{{ artikel.date }}">Geplaatst: {{ artikel.date | date: '%d-%m-%Y'}}</time>
     <p>

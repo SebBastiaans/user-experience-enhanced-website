@@ -25,8 +25,8 @@
         {% for newsItem in nieuws %}
             <li>
                 <picture>
-                    <source width="150" height="100" type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{newsItem.image}}?format=avif">
-                    <source width="150" height="100" type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{newsItem.image}}?format=webp">
+                    <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{newsItem.image}}?format=avif">
+                    <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{newsItem.image}}?format=webp">
                     <img width="150" height="100" loading="lazy" src="https://fdnd-agency.directus.app/assets/{{newsItem.image}}" alt="{{newsItem.title}}">
                 </picture>
                 {% comment %} <img src="https://fdnd-agency.directus.app/assets/{{newsItem.image}}" alt="{{newsItem.title}}"> {% endcomment %}
@@ -39,9 +39,9 @@
         {% for newsItem in nieuws %}
             <li>
                 <picture>
-                    <source loading="lazy" type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{newsItem.image}}?format=avif">
-                    <source loading="lazy" type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{newsItem.image}}?format=webp">
-                    <img loading="lazy" src="https://fdnd-agency.directus.app/assets/{{newsItem.image}}" alt="{{newsItem.title}}">
+                    <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{newsItem.image}}?format=avif">
+                    <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{newsItem.image}}?format=webp">
+                    <img width="150" height="100" loading="lazy" src="https://fdnd-agency.directus.app/assets/{{newsItem.image}}" alt="{{newsItem.title}}">
                 </picture>
                 <p class="tag">Bloemneveld</p> 
                 <a href="/nieuws/{{ newsItem.slug }}">{{ newsItem.title |  truncate: 60}}</a>{% comment %} truncate zorgt voor maximaal aantal charactars, daarna worden het 3 puntjes{% endcomment %}
