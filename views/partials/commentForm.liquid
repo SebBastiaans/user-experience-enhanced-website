@@ -81,10 +81,14 @@
 
     // Loading state weghalen
     // Nu kan je waarschijnlijk de Loading state vervangen door een Success state
-    console.log("Loading state weghalen")
     formButton.classList.remove("loading")
     formButton.textContent = "✓"
     latestMess.classList.add("highlight")
+
+    setTimeout(() => {
+      formButton.textContent = "verstuur"
+      commForm.reset() // leegt naam + bericht velden
+    }, 2000)
 
   })
 
